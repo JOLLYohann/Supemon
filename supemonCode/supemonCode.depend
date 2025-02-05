@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1738796033 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\main.c
+	<stdio.h>
+	<stdlib.h>
+	"structure.h"
+	"programLaunch.h"
+
+1738778502 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.h
+
+1738796213 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.c
+	<stdio.h>
+	"structure.h"
+
+1738795352 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.h
+
+1738795682 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.c
+	<string.h>
+	"structure.h"
+
