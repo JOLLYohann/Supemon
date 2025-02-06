@@ -29,7 +29,7 @@ void starterChoice(struct player *player)
 
     printf("Now choose your starter to begin your adventure:\n 1-Supmander\n 2-Supasaur\n 3-Supirtle\n");
     do {
-            printf("Choose your Supemon: ");
+            printf("Choose your Supemon(1-3): ");
         scanf("%d", &choice);
         fflush(stdin);
     } while (choice < 1 || choice > 3);
@@ -45,4 +45,5 @@ void starterChoice(struct player *player)
     {
         player->supemon[0] = supirtle;
     }
+    printf("You have choose %s\n", player->supemon[0]);
 }
