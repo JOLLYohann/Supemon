@@ -3,6 +3,7 @@
 
 #include "structure.h"
 #include "programLaunch.h"
+#include "game.h"
 
 int main()
 {
@@ -13,7 +14,8 @@ int main()
     starterChoice(&player);
     player.supcoins = 0;
     player.activeSupemon = 0;
-    printf("Vous avez choisi %s", player.supemon[0]);
+
+    chooseActivity();
 
     return 0;
 }
