@@ -51,10 +51,4 @@ extern struct supemon supmander;
 extern struct supemon supasaur;
 extern struct supemon supirtle;
 
-extern struct moves Scratch;
-extern struct moves Grawl;
-extern struct moves Pound;
-extern struct moves Foliage;
-extern struct moves Shell;
-
 #endif // STRUCTURE_H_INCLUDED
