@@ -57,7 +57,7 @@ int chooseActivity (void)
     printf("\nYou found a %s ! \nWhich Supemon will you use ?\n", ennemy.name);
     for (int i=0; i<6; i++)
     {
-        if (player->supemon[i].lvl > 0)
+        if (player->supemon[i].HP > 0)
         {
             printf(" %d-%s\n", i+1, player->supemon[i].name);
         }
@@ -118,15 +118,15 @@ int chooseActivity (void)
             }
             else
             {
-                if (rand()%101 < ((ennemy.acc/(ennemy.acc+player->supemon[player->activeSupemon].eva))*100)+10)
+                if (rand()%101 < (((float)ennemy.acc/(ennemy.acc+player->supemon[player->activeSupemon].eva))*100)+10)
                 {
                     if (((ennemy.atk*ennemy.moves[move].effectValue)/player->supemon[player->activeSupemon].def)%2)
                     {
-                        damage = ((ennemy.atk*ennemy.moves[move].effectValue)/player->supemon[player->activeSupemon].def)+rand()%2;
+                        damage = -((ennemy.atk*ennemy.moves[move].effectValue)/player->supemon[player->activeSupemon].def)+rand()%2;
                     }
                     else
                     {
-                        damage = (ennemy.atk*ennemy.moves[move].effectValue)/player->supemon[player->activeSupemon].def;
+                        damage = -(ennemy.atk*ennemy.moves[move].effectValue)/player->supemon[player->activeSupemon].def;
                     }
                     effect(&player->supemon[player->activeSupemon], ennemy.moves[move].effectType, damage);
                     printf("Ennemy Supemon did = %s", ennemy.moves[move].name);
@@ -162,9 +162,7 @@ int chooseActivity (void)
                 }
                 else if (move == 0)
                 {
-                    probaHit = (((float)player->supemon[player->activeSupemon].acc/(player->supemon[player->activeSupemon].acc+ennemy.eva))*100)+10;
-                    printf("\n\n/!\\ Your.ACC: %d / ennemy.EVA: %d / Result: %.1f\n\n", player->supemon[player->activeSupemon].acc, ennemy.eva, probaHit);
-                    if (rand()%101 < probaHit)
+                    if (rand()%101 < (((float)player->supemon[player->activeSupemon].acc/(player->supemon[player->activeSupemon].acc+ennemy.eva))*100)+10)
                     {
                         if (((player->supemon[player->activeSupemon].atk*player->supemon[player->activeSupemon].moves[move].effectValue)/ennemy.def)%2)
                         {
@@ -186,11 +184,11 @@ int chooseActivity (void)
             turn = 2;
         }
     } while (player->supemon[player->activeSupemon].hp > 0 && ennemy.hp > 0 && action != 4);
-    if (player->supemon[player->activeSupemon].hp < 0)
+    if (player->supemon[player->activeSupemon].hp <= 0)
     {
         printf("\n\nYou loose...\n");
     }
-    else if (ennemy.hp < 0)
+    else if (ennemy.hp <= 0)
     {
         printf("\n\nYou win !\n");
         supcoinsWin = (rand()%401)+100;
@@ -198,7 +196,6 @@ int chooseActivity (void)
         player->supcoins += supcoinsWin;
         player->supemon[player->activeSupemon].exp += expWin;
         printf("You win %d Supcoins and %s win %d points of experience\n", supcoinsWin, player->supemon[player->activeSupemon].name, expWin);
-        printf("/!\\ EXP = %d\n", player->supemon[player->activeSupemon].exp);
         if (player->supemon[player->activeSupemon].exp >= ((player->supemon[player->activeSupemon].lvl+1) * 1000) - 1500)
         {
             player->supemon[player->activeSupemon].lvl ++;
@@ -210,4 +207,90 @@ int chooseActivity (void)
     {
         printf("\n\nYou run away...\n");
     }
+}
+
+void shop (struct player *player)
+{
+    int action = 0;
+    int choice = 0;
+
+    do
+    {
+        printf("\nWelcome in the Shop %s\n 1-Buy items\n 2-Sell items\nYou do: ", player->nickname);
+        scanf("%d", &action);
+        fflush(stdin);
+    } while (action != 1 && action != 2);
+    if (action == 1)
+    {
+        printf("\nYou have %d Supcoins\n", player->supcoins);
+        for (int i=0; i<4; i++)
+        {
+            printf("%d-%s (%d Supcoins)\n", i+1, itemList[i].name, itemList[i].price);
+        }
+        do
+        {
+            printf("Select item(1-4), or Cancel (5): ");
+            scanf("%d", &choice);
+            fflush(stdin);
+        } while (choice < 1 || choice > 5);
+        choice--;
+        if (choice != 5)
+        {
+            if (itemList[choice].price < player->supcoins)
+            {
+                player->supcoins -= itemList[choice].price;
+                for (int i=0; i<99; i++)
+                {
+                    if (player->items[i].price == 0)
+                    {
+                        player->items[i] = itemList[choice];
+                        printf("You have choose %s\n", player->items[i].name);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                printf("You don't have enought money, you need %d Supcoins\n", itemList[choice].price - player->supcoins);
+            }
+        }
+    }
+    else
+    {
+        for (int i=0; i<99; i++)
+        {
+            if (player->items[i].price != 0)
+            {
+                printf("%d-%s\n", i+1, player->items[i].name);
+            }
+        }
+    }
+}
+
+void supemonCenter (struct player *player)
+{
+    char healing = 'X';
+
+    printf("\nWelcome in the Supemon Center %s\n", player->nickname);
+    for (int i=0; i<6; i++)
+    {
+        if (player->supemon[i].HP > 0)
+        {
+            printf(" %d-%s HP: %d/%d\n", i+1, player->supemon[i].name, player->supemon[i].hp, player->supemon[i].HP);
+        }
+    }
+    do {
+        printf("Do you want to heal your Supemon ? (Y/N): ");
+        scanf("%c", &healing);
+        fflush(stdin);
+    } while (healing != 'Y' && healing != 'y' && healing != 'N' && healing != 'n');
+    if (healing == 'Y' || healing == 'y')
+    {
+        for (int i=0; i<6; i++)
+        {
+            player->supemon[i].hp = player->supemon[i].HP;
+        }
+        printf("All your Supemon have been heal\n");
+    }
+    printf("Your now leaving the Supemon Center\n");
 }

@@ -42,12 +42,13 @@ struct player
     struct supemon supemon[5];
     int activeSupemon;
     int supcoins;
-    struct items items[100];
+    struct items items[99];
 };
 
 void initGame(struct player *player);
 
 extern int lengthSupemonList;
+extern struct items itemList[4];
 extern struct supemon supemonList[3];
 extern struct supemon supmander;
 extern struct supemon supasaur;

@@ -22,6 +22,14 @@ int main()
         {
             battle(&player);
         }
+        else if (activity == 2)
+        {
+            shop(&player);
+        }
+        else if (activity == 3)
+        {
+            supemonCenter(&player);
+        }
     } while (activity != 4);
 
     return 0;
