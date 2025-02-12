@@ -103,13 +103,18 @@ struct supemon supirtle = {
 
 int lengthSupemonList = 3;
 
+struct items itemList[4];
 struct supemon supemonList[3];
 
 void initGame(struct player *player)
 {
     for (int i=0; i<6; i++)
     {
-        player->supemon[i].lvl = 0;
+        player->supemon[i].HP = 0;
+    }
+    for (int i=0; i<100; i++)
+    {
+        player->items[i].price = 0;
     }
 
     strcpy(potion.name, "Potion");
@@ -133,6 +138,11 @@ void initGame(struct player *player)
     strcpy(supmander.name, "Supmander");
     strcpy(supasaur.name, "Supasaur");
     strcpy(supirtle.name, "Supirtle");
+
+    itemList[0] = potion;
+    itemList[1] = superPotion;
+    itemList[2] = rareCandy;
+    itemList[3] = supeball;
 
     supemonList[0] = supmander;
     supemonList[1] = supasaur;
