@@ -2,28 +2,51 @@
 
 #include "structure.h"
 
-struct moves Scratch = {
+struct items potion = {
+    .price = 100,
+    .effectType = 3,
+    .effectValue = 5
+};
+
+struct items superPotion = {
+    .price = 300,
+    .effectType = 3,
+    .effectValue = 10
+};
+
+struct items rareCandy = {
+    .price = 700,
     .effectType = 1,
+    .effectValue = 5
+};
+
+struct items supeball = {
+    .price = 50,
+    .effectType =0
+};
+
+struct moves Scratch = {
+    .effectType = 3,
     .effectValue = 3
 };
 
 struct moves Grawl = {
-    .effectType = 2,
+    .effectType = 4,
     .effectValue = 1
 };
 
 struct moves Pound = {
-    .effectType = 1,
+    .effectType = 3,
     .effectValue = 2
 };
 
 struct moves Foliage = {
-    .effectType = 3,
+    .effectType = 6,
     .effectValue = 1
 };
 
 struct moves Shell = {
-    .effectType = 4,
+    .effectType = 5,
     .effectValue = 1
 };
 
@@ -78,8 +101,22 @@ struct supemon supirtle = {
     .SPD = 2
 };
 
-void initSupemon(void)
+int lengthSupemonList = 3;
+
+struct supemon supemonList[3];
+
+void initGame(struct player *player)
 {
+    for (int i=0; i<6; i++)
+    {
+        player->supemon[i].lvl = 0;
+    }
+
+    strcpy(potion.name, "Potion");
+    strcpy(superPotion.name, "Super Potion");
+    strcpy(rareCandy.name, "Rare Candy");
+    strcpy(supeball.name, "Supeball");
+
     strcpy(Scratch.name, "Scratch");
     strcpy(Grawl.name, "Grawl");
     strcpy(Pound.name, "Pound");
@@ -96,4 +133,8 @@ void initSupemon(void)
     strcpy(supmander.name, "Supmander");
     strcpy(supasaur.name, "Supasaur");
     strcpy(supirtle.name, "Supirtle");
+
+    supemonList[0] = supmander;
+    supemonList[1] = supasaur;
+    supemonList[2] = supirtle;
 }

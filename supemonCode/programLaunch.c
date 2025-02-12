@@ -20,7 +20,7 @@ void playerNickname(struct player *player)
             printf("Your nickname is: %s\n", player->nickname);
         }
     } while (nicknameValidation != 'Y' && nicknameValidation != 'y');
-    printf("Hi %s, welcome in Supemon world !\n", player->nickname);
+    printf("\nHi %s, welcome in Supemon world !\n", player->nickname);
 }
 
 void starterChoice(struct player *player)
@@ -33,17 +33,6 @@ void starterChoice(struct player *player)
         scanf("%d", &choice);
         fflush(stdin);
     } while (choice < 1 || choice > 3);
-    if (choice == 1)
-    {
-        player->supemon[0] = supmander;
-    }
-    else if (choice == 2)
-    {
-        player->supemon[0] = supasaur;
-    }
-    else if (choice == 3)
-    {
-        player->supemon[0] = supirtle;
-    }
+    player->supemon[0] = supemonList[--choice];
     printf("You have choose %s\n", player->supemon[0]);
 }
