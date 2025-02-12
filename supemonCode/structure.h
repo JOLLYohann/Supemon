@@ -39,14 +39,16 @@ struct supemon
 struct player
 {
     char nickname[50];
-    struct supemon supemon[6];
+    struct supemon supemon[5];
     int activeSupemon;
     int supcoins;
     struct items items[100];
 };
 
-void initSupemon(void);
+void initGame(struct player *player);
 
+extern int lengthSupemonList;
+extern struct supemon supemonList[3];
 extern struct supemon supmander;
 extern struct supemon supasaur;
 extern struct supemon supirtle;

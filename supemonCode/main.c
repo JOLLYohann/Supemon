@@ -7,15 +7,22 @@
 
 int main()
 {
-    initSupemon();
+    int activity = 0;
+
     struct player player;
+    initGame(&player);
 
     playerNickname(&player);
     starterChoice(&player);
     player.supcoins = 0;
-    player.activeSupemon = 0;
 
-    chooseActivity();
+    do {
+        activity = chooseActivity();
+        if (activity == 1)
+        {
+            battle(&player);
+        }
+    } while (activity != 4);
 
     return 0;
 }
