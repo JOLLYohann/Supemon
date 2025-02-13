@@ -1,23 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #include "structure.h"
 #include "programLaunch.h"
 #include "game.h"
+#include "gameSave.h"
 
 int main()
 {
-    int test = pow(2, 3);
-    printf("%d", test);
     int activity = 0;
 
     struct player player;
     initGame(&player);
 
-    playerNickname(&player);
-    starterChoice(&player);
-    player.supcoins = 0;
+    if (askLoading())
+    {
+        loading(&player);
+    }
+    else
+    {
+        playerNickname(&player);
+        starterChoice(&player);
+        player.supcoins = 0;
+    }
 
     do {
         activity = chooseActivity();
@@ -34,6 +39,7 @@ int main()
             supemonCenter(&player);
         }
     } while (activity != 4);
+    saving(&player);
 
     return 0;
 }
