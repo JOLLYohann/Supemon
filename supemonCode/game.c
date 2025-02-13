@@ -386,7 +386,7 @@ void shop (struct player *player)
     do
     {
         printf("+---------------------------------\n");
-        printf("\n|Welcome in the Shop %s\n| 1-Buy items\n| 2-Sell items\n|You do: ", player->nickname);
+        printf("|Welcome in the Shop %s\n| 1-Buy items\n| 2-Sell items\n|You do: ", player->nickname);
         scanf("%d", &action);
         fflush(stdin);
     } while (action != 1 && action != 2);
@@ -466,7 +466,7 @@ void supemonCenter (struct player *player)
     {
         if (player->supemon[i].HP > 0)
         {
-            printf(" |%d-%s HP: %d/%d\n", i+1, player->supemon[i].name, player->supemon[i].hp, player->supemon[i].HP);
+            printf("|%d-%s HP: %d/%d\n", i+1, player->supemon[i].name, player->supemon[i].hp, player->supemon[i].HP);
         }
     }
     do {
