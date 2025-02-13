@@ -34,5 +34,5 @@ void starterChoice(struct player *player)
         fflush(stdin);
     } while (choice < 1 || choice > 3);
     player->supemon[0] = supemonList[--choice];
-    printf("You have choose %s\n", player->supemon[0]);
+    printf("You have choose %s\nTo begin your adventure, we give you x5 Supeball\n", player->supemon[0]);
 }

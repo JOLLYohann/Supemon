@@ -1,28 +1,30 @@
 # depslib dependency file v1.0
-1739391339 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\main.c
+1739469695 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\main.c
 	<stdio.h>
 	<stdlib.h>
+	<math.h>
 	"structure.h"
 	"programLaunch.h"
 	"game.h"
 
 1738796564 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.h
 
-1739390378 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.c
+1739453858 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.c
 	<stdio.h>
 	"structure.h"
 
-1739401468 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.h
+1739401600 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.h
 
-1739398660 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.c
+1739454074 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.c
 	<string.h>
 	"structure.h"
 
-1739400761 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.c
+1739470064 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
+	<math.h>
 	"structure.h"
 
-1739391339 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.h
+1739401600 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.h
 
