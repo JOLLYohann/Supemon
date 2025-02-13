@@ -1,25 +1,25 @@
 # depslib dependency file v1.0
-1739469695 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\main.c
+1739472968 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\main.c
 	<stdio.h>
 	<stdlib.h>
-	<math.h>
 	"structure.h"
 	"programLaunch.h"
 	"game.h"
+	"gameSave.h"
 
 1738796564 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.h
 
-1739453858 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.c
+1739470577 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\programlaunch.c
 	<stdio.h>
 	"structure.h"
 
 1739401600 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.h
 
-1739454074 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.c
+1739470577 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\structure.c
 	<string.h>
 	"structure.h"
 
-1739470064 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.c
+1739476465 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -27,4 +27,12 @@
 	"structure.h"
 
 1739401600 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\game.h
+
+1739472282 c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\gamesave.h
+
+1739478872 source:c:\supinfo\projets\supemon-yohann&titouanc\supemon\supemoncode\gamesave.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"structure.h"
 

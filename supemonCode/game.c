@@ -288,11 +288,11 @@ int chooseActivity (void)
     } while (player->supemon[player->activeSupemon].hp > 0 && ennemy.hp > 0 && action != 4);
     if (player->supemon[player->activeSupemon].hp <= 0)
     {
-        printf("\nYou loose...\n");
+        printf("\n\nYou loose...\n");
     }
     else if (ennemy.hp <= 0)
     {
-        printf("\nYou win !\n");
+        printf("\n\nYou win !\n");
         supcoinsWin = (rand()%401)+100;
         expWin = ((rand()%401)+100)*ennemy.lvl;
         player->supcoins += supcoinsWin;
@@ -303,6 +303,14 @@ int chooseActivity (void)
             player->supemon[player->activeSupemon].lvl ++;
             player->supemon[player->activeSupemon].exp -= (player->supemon[player->activeSupemon].lvl * 1000) - 1500;
             printf("%s level up! he is now lvl %d\n",player->supemon[player->activeSupemon].name, player->supemon[player->activeSupemon].lvl);
+            if (fmod(player->supemon[player->activeSupemon].HP * 1.3, 1.0) > 0)
+            {
+                player->supemon[player->activeSupemon].HP *= 1.3 + rand()%2;
+            }
+            else
+            {
+                player->supemon[player->activeSupemon].HP *= 1.3;
+            }
             if (fmod(player->supemon[player->activeSupemon].ATK * 1.3, 1.0) > 0)
             {
                 player->supemon[player->activeSupemon].ATK *= 1.3 + rand()%2;
@@ -347,7 +355,7 @@ int chooseActivity (void)
     }
     else if (action == 4)
     {
-        printf("\nYou run away...\n");
+        printf("\n\nYou run away...\n");
     }
     player->supemon[player->activeSupemon].atk = player->supemon[player->activeSupemon].ATK;
     player->supemon[player->activeSupemon].def = player->supemon[player->activeSupemon].DEF;
