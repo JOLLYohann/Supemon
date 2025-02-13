@@ -22,7 +22,7 @@ struct items rareCandy = {
 
 struct items supeball = {
     .price = 50,
-    .effectType =0
+    .effectType = 0
 };
 
 struct moves Scratch = {
@@ -147,4 +147,9 @@ void initGame(struct player *player)
     supemonList[0] = supmander;
     supemonList[1] = supasaur;
     supemonList[2] = supirtle;
+
+    for (int i=0; i<5; i++)
+    {
+        player->items[i] = supeball;
+    }
 }

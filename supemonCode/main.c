@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "structure.h"
 #include "programLaunch.h"
@@ -7,6 +8,8 @@
 
 int main()
 {
+    int test = pow(2, 3);
+    printf("%d", test);
     int activity = 0;
 
     struct player player;
