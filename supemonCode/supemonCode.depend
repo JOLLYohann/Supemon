@@ -36,3 +36,40 @@
 	<string.h>
 	"structure.h"
 
+1739486844 source:c:\users\titou\documents\projet c\supemon\supemoncode\game.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	"structure.h"
+
+1739480485 c:\users\titou\documents\projet c\supemon\supemoncode\structure.h
+
+1739484188 source:c:\users\titou\documents\projet c\supemon\supemoncode\main.c
+	<stdio.h>
+	<stdlib.h>
+	"structure.h"
+	"programLaunch.h"
+	"game.h"
+	"gameSave.h"
+
+1739480485 c:\users\titou\documents\projet c\supemon\supemoncode\programlaunch.h
+
+1739480485 c:\users\titou\documents\projet c\supemon\supemoncode\game.h
+
+1739480485 c:\users\titou\documents\projet c\supemon\supemoncode\gamesave.h
+
+1739480485 source:c:\users\titou\documents\projet c\supemon\supemoncode\structure.c
+	<string.h>
+	"structure.h"
+
+1739484604 source:c:\users\titou\documents\projet c\supemon\supemoncode\gamesave.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"structure.h"
+
+1739486131 source:c:\users\titou\documents\projet c\supemon\supemoncode\programlaunch.c
+	<stdio.h>
+	"structure.h"
+

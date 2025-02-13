@@ -6,33 +6,44 @@ void playerNickname(struct player *player)
 {
     char nicknameValidation = 'X';
 
-    printf("To begin you need to enter a nickname: ");
+
+    printf("+----To begin, enter a nickname:-----\n|");
     gets(player->nickname);
-    printf("Your nickname is: %s\n", player->nickname);
+    printf("| Your nickname is: %-10s\n", player->nickname);
     do {
-        printf("Do you agree ? (Y/N): ");
-        scanf("%c", &nicknameValidation);
+        printf("| Do you agree? (Y/N):");
+        scanf(" %c", &nicknameValidation);
         fflush(stdin);
         if (nicknameValidation == 'N' || nicknameValidation == 'n')
         {
-            printf("Enter a nickname: ");
+            printf("+----------------------------\n");
+            printf("| Enter a nickname:");
             gets(player->nickname);
-            printf("Your nickname is: %s\n", player->nickname);
+            printf("| Your nickname is: %-10s\n", player->nickname);
         }
     } while (nicknameValidation != 'Y' && nicknameValidation != 'y');
-    printf("\nHi %s, welcome in Supemon world !\n", player->nickname);
+     printf("+------------------------------------------\n");
+    printf("|Hi %-10s, welcome to Supemon World!\n", player->nickname);
+
 }
 
 void starterChoice(struct player *player)
 {
     int choice = 0;
 
-    printf("Now choose your starter to begin your adventure:\n 1-Supmander\n 2-Supasaur\n 3-Supirtle\n");
+
+    printf("+-----Choose your starter Supemon:-----\n");
+    printf("|  1 - Supmander\n");
+    printf("|  2 - Supasaur\n");
+    printf("|  3 - Supirtle\n");
+
     do {
-            printf("Choose your Supemon(1-3): ");
+            printf("|Choose your Supemon(1-3): ");
         scanf("%d", &choice);
         fflush(stdin);
     } while (choice < 1 || choice > 3);
     player->supemon[0] = supemonList[--choice];
-    printf("You have choose %s\nTo begin your adventure, we give you x5 Supeball\n", player->supemon[0]);
+    printf("+----------------------------------------------\n");
+    printf("| You have chosen %-10s\n", player->supemon[0]);
+    printf("| To begin your adventure, you get x5 Supeball\n");
 }
