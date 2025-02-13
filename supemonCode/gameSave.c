@@ -54,7 +54,6 @@ void loading(struct player *player) {
 
     for (int i = 0; i < 6; i++) {
         fgets(player->supemon[i].name, 20, file);
-        printf("%d/%s\n", i, player->supemon[i].name);
         fscanf(file, "%d", &player->supemon[i].lvl);
         fscanf(file, "%d", &player->supemon[i].exp);
         fscanf(file, "%d", &player->supemon[i].hp);
